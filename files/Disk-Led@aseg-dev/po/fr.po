@@ -1,0 +1,88 @@
+# HDD LED
+# This file is put in the public domain.
+# aseg-dev, 2024
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Disk-Led@aseg-dev 0.95\n"
+"Report-Msgid-Bugs-To: https://github.com/linuxmint/cinnamon-spices-applets/issues\n"
+"POT-Creation-Date: 2024-11-14 20:02+0100\n"
+"PO-Revision-Date: 2024-11-26 21:06+0100\n"
+"Last-Translator: aseg-dev\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. applet.js:231
+#. applet.js:244
+msgid "Status of new disks: "
+msgstr "État des nouveaux disques : "
+
+#. applet.js:231
+#. applet.js:244
+msgid "ignore"
+msgstr ""
+
+#. applet.js:231
+#. applet.js:244
+msgid "monitor"
+msgstr "surveille"
+
+#. applet.js:269
+msgid "                    Disk to monitor"
+msgstr "                    Disques à surveiller"
+
+#. applet.js:278
+msgid ""
+"Left-click: opens menu\n"
+"Right-click: opens settings"
+msgstr ""
+"Clic gauche : ouvre le menu\n"
+"Clic droit : ouvre les paramètres"
+
+#. metadata.json->name
+msgid "HDD LED"
+msgstr ""
+
+#. metadata.json->description
+msgid "A LED that indicates disk actions"
+msgstr "Une LED qui indique les actions du disque"
+
+#. settings-schema.json->head0->description
+msgid "Appearance"
+msgstr "Apparence"
+
+#. settings-schema.json->led-style->description
+msgid "LED style"
+msgstr "Style de LED"
+
+#. settings-schema.json->led-style->tooltip
+msgid "Select the LED style"
+msgstr "Choisir le style de LED"
+
+#. settings-schema.json->led-style->options
+msgid "Light Flashy"
+msgstr "Flashy clair"
+
+#. settings-schema.json->led-style->options
+msgid "Light Soft"
+msgstr "Soft clair"
+
+#. settings-schema.json->led-style->options
+msgid "Dark Flashy"
+msgstr "Flashy sombre"
+
+#. settings-schema.json->led-style->options
+msgid "Dark Soft"
+msgstr "Soft sombre"
+
+#. settings-schema.json->custom-label->description
+msgid "Custom Applet Label"
+msgstr "Texte d'applet personnalisé"
+
+#. settings-schema.json->custom-label->tooltip
+msgid "Set your custom label"
+msgstr "Définissez votre texte personnalisé"

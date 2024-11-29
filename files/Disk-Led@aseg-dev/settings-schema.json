@@ -1,0 +1,43 @@
+{
+    "head0" :
+    {
+        "type": "header",
+        "description" : "Appearance"
+    },
+    "div01" :
+    {
+       "type" : "separator"
+    },
+    "led-style" :
+    {
+        "type" : "radiogroup",
+        "default": "lf",
+        "description": "LED style",
+        "tooltip" : "Select the LED style",
+        "options" : {
+            "Light Flashy" : "lf",
+            "Light Soft" : "ls",
+            "Dark Flashy" : "df",
+            "Dark Soft" : "ds"
+        }
+    },
+    "custom-label" :
+    {
+        "type" : "entry",
+        "default" : "",
+        "description" : "Custom Applet Label",
+        "tooltip" : "Set your custom label"
+    },
+    "hidden-disk-storage" :
+    {
+        "type" : "generic",
+        "description" : "",
+        "value" : "sdx"
+    },
+    "hidden-new-state" :
+    {
+        "type" : "generic",
+        "description" : "",
+        "value" : "0"
+    }
+}

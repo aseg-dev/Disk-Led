@@ -1,0 +1,7 @@
+{
+ "uuid": "Disk-Led@aseg-dev",
+ "name": "Disk Led",
+ "description": "A LED that indicates disk actions",
+ "max-instances": "3",
+ "version": "0.9"
+}

@@ -1,0 +1,89 @@
+# HDD LED
+# This file is put in the public domain.
+# aseg-dev, 2024
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Disk-Led@aseg-dev 0.95\n"
+"Report-Msgid-Bugs-To: https://github.com/linuxmint/cinnamon-spices-applets/"
+"issues\n"
+"POT-Creation-Date: 2024-11-14 20:02+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: aseg-dev\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. applet.js:231
+#. applet.js:244
+msgid "Status of new disks: "
+msgstr "Status der neuen Datenträger:"
+
+#. applet.js:231
+#. applet.js:244
+msgid "ignore"
+msgstr "ignorieren"
+
+#. applet.js:231
+#. applet.js:244
+msgid "monitor"
+msgstr "überwachen"
+
+#. applet.js:269
+msgid "                    Disk to monitor"
+msgstr "          Zu überwachende Festplatte"
+
+#. applet.js:278
+msgid ""
+"Left-click: opens menu\n"
+"Right-click: opens settings"
+msgstr ""
+"Linksklick: öffnet Menü\n"
+"Rechtsklick: öffnet Einstellungen"
+
+#. metadata.json->name
+msgid "HDD LED"
+msgstr ""
+
+#. metadata.json->description
+msgid "A LED that indicates disk actions"
+msgstr "Eine LED, die Festplattenaktionen anzeigt"
+
+#. settings-schema.json->head0->description
+msgid "Appearance"
+msgstr "Aussehen"
+
+#. settings-schema.json->led-style->description
+msgid "LED style"
+msgstr "LED-Stil"
+
+#. settings-schema.json->led-style->tooltip
+msgid "Select the LED style"
+msgstr "Wählen Sie den LED-Stil"
+
+#. settings-schema.json->led-style->options
+msgid "Light Flashy"
+msgstr "Klar Flashy"
+
+#. settings-schema.json->led-style->options
+msgid "Light Soft"
+msgstr "Klar Soft"
+
+#. settings-schema.json->led-style->options
+msgid "Dark Flashy"
+msgstr "Dunkel Flashy"
+
+#. settings-schema.json->led-style->options
+msgid "Dark Soft"
+msgstr "Dunkel Soft"
+
+#. settings-schema.json->custom-label->description
+msgid "Custom Applet Label"
+msgstr "Benutzerdefiniertes Applet-Label"
+
+#. settings-schema.json->custom-label->tooltip
+msgid "Set your custom label"
+msgstr "Legen Sie Ihr benutzerdefiniertes Etikett fest"
