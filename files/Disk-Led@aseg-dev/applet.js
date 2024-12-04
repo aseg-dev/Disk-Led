@@ -1,8 +1,7 @@
 /**
- * TODO : prendre en compte uniquement les disques montés ?
- * TODO : traduction !
+ * TODO: 
  * 
- * global.logWarning("hidden_disk_storage: " + this.hidden_disk_storage); // !test
+ * global.logWarning("Text: " + value); // ! for test
  */
 
 const Applet = imports.ui.applet;
@@ -91,18 +90,24 @@ class HddLed extends Applet.TextIconApplet
 //----------------------------------- end of constructor -----------------------------------//
 
     /**
-     * @brief   extract disk names from /proc/partitions and return them
+     * @brief   extract disk names from /proc/mounts and return them
+     * @brief   only mounted disks can be monitored
      * 
      * @param   none
-     * @returns data_array: string array (disk labels)
+     * @returns string array: disk labels
      */
     catchDisks()
     {
-        let [success, data_array] = GLib.file_get_contents("/proc/partitions"); // reading partition file
+        let [success, data_array] = GLib.file_get_contents("/proc/mounts"); // read mounted filesystems
 
-        data_array = data_array.toString().match(/sd[a-z]$/gm);
+        data_array = data_array.toString().match(/sd.\d/gm); // search sdx[Index] (ex: sdc2)
 
-        return data_array;
+        for(let i in data_array)
+        {
+            data_array[i] = data_array[i].slice(0, -1); // remove index
+        }
+
+        return [...new Set(data_array)]; // without duplicates
     }
 
     /**
@@ -114,9 +119,9 @@ class HddLed extends Applet.TextIconApplet
      */
     extract_disks(temp_storage)
     {
-        if(this.hidden_disk_storage.match(/sd.\d/g))
+        if(this.hidden_disk_storage.match(/sd.\d/gm))
         { // there is at least one disk
-            temp_storage = temp_storage.concat(this.hidden_disk_storage.match(/sd.\d/g)).sort(); // like "sdx0" or "sdx1", sorted
+            temp_storage = temp_storage.concat(this.hidden_disk_storage.match(/sd.\d/gm)).sort(); // like "sdx0" or "sdx1", sorted
         }
         else
         { // first time, first disk status is 1, regardless to this.hidden_new_state
@@ -141,7 +146,7 @@ class HddLed extends Applet.TextIconApplet
             sdxItem = this.catchDisks(),
             temp_storage = new Array(); // HDD array
 
-            for(let i = 0; i < sdxItem.length; i++)
+        for(let i in sdxItem)
         { // add loop
             if(!this.hidden_disk_storage.match(sdxItem[i] + "\\d"))
             {
@@ -155,9 +160,9 @@ class HddLed extends Applet.TextIconApplet
             this.hidden_disk_storage = "," + this.extract_disks(temp_storage);
         }
 
-        temp_storage = this.hidden_disk_storage.match(/sd./g);
+        temp_storage = this.hidden_disk_storage.match(/sd./gm);
 
-        for(let i = 0; i < temp_storage.length; i++)
+        for(let i in temp_storage)
         { // delete loop
             if(sdxItem.indexOf(temp_storage[i]) == -1)
             { // not found, delete it
@@ -198,7 +203,7 @@ class HddLed extends Applet.TextIconApplet
             switchItem,
             sdxItem = this.catchDisks(); // HDD array
 
-        for(let i = 0; i < sdxItem.length; i++)
+        for(let i in sdxItem)
         {   // dynamic disk switch adding
             switchItem = new PopupMenu.PopupSwitchMenuItem(sdxItem[i], this.storedDiskState(sdxItem[i])); // Label and state
             switchItem.idInPane = sdxItem[i];
@@ -222,7 +227,7 @@ class HddLed extends Applet.TextIconApplet
     /**
      * @brief   add a new disk state switch to menu
      * @brief   0 to ignore disk, 1 to monitor disk
-     * 
+     *
      * @param   none
      * @return  none
      */
@@ -297,7 +302,7 @@ class HddLed extends Applet.TextIconApplet
     {
         let [success, data_array] = GLib.file_get_contents("/sys/block/" + disk + "/stat"); // reading stat
 
-        return data_array.toString().replace(/\s+/g, " ").trim().split(" "); // data block split        
+        return data_array.toString().replace(/\s+/gm, " ").trim().split(" "); // data block split        
     }
 
     /**
@@ -308,13 +313,13 @@ class HddLed extends Applet.TextIconApplet
      */
     get_enabled_disks()
     {
-        let temp = this.hidden_disk_storage.match(/sd.1/g); // all sdx1 disks
+        let temp = this.hidden_disk_storage.match(/sd.1/gm); // all sdx1 disks
         if(temp == null)
         {
             temp = [];
         }
 
-        for(let i = 0; i < temp.length; i++)
+        for(let i in temp)
         {
             temp[i] = temp[i].slice(0, -1); // remove the final 1
         }
@@ -334,7 +339,7 @@ class HddLed extends Applet.TextIconApplet
             read_flag = "0",
             write_flag = "0";
         
-        for(let i = 0; i < this.enabled_disks.length; i++)
+        for(let i in this.enabled_disks)
         { // for all enabled disks
             let data_array = this.get_R_W_state(this.enabled_disks[i]);
 

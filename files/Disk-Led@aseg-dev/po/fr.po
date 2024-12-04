@@ -24,12 +24,12 @@ msgstr "État des nouveaux disques : "
 #. applet.js:231
 #. applet.js:244
 msgid "ignore"
-msgstr ""
+msgstr "ignorer"
 
 #. applet.js:231
 #. applet.js:244
 msgid "monitor"
-msgstr "surveille"
+msgstr "surveiller"
 
 #. applet.js:269
 msgid "                    Disk to monitor"
